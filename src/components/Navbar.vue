@@ -1,17 +1,22 @@
 <template>
   <nav class="navbar navbar-dark bg-dark">
     <div class="container">
-      <a class="navbar-brand" href="index.html"><img src="d&d.png" alt="D&D" width="60" height="60" class="d-inline-block align-top"></a>
-      <a class="nav-link" href="#"><i class="nav-icon fas fa-cog"></i>Configuration</a>
-      <a class="nav-link" href="#"><i class="nav-icon fas fa-search"></i>Recherche</a>
-      <a class="nav-link" href="#"><i class="nav-icon fas fa-chart-pie"></i>Statistiques</a>
+      <a class="navbar-brand"><img src="d&d.png" alt="D&D" width="60" height="60" class="d-inline-block align-top"></a>
+      <a class="nav-link" v-on:click="changeContent('configuration')"><i class="nav-icon fas fa-cog"></i>Configuration</a>
+      <a class="nav-link" v-on:click="changeContent('recherche')"><i class="nav-icon fas fa-search"></i>Recherche</a>
+      <a class="nav-link" v-on:click="changeContent('statistiques')"><i class="nav-icon fas fa-chart-pie"></i>Statistiques</a>
     </div>
   </nav>
 </template>
 
 <script>
 export default {
-  name: "Navbar"
+  name: "Navbar",
+  methods: {
+    changeContent (content) {
+      this.$parent.content = content;
+      }
+    }
 };
 </script>
 

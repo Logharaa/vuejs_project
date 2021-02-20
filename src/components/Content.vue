@@ -1,26 +1,28 @@
 <template>
   <div id="content">
-    <Configuration></Configuration>
+    <Recherche v-if="getContent() === 'recherche'"></Recherche>
+    <Statistiques v-else-if="getContent() === 'statistiques'"></Statistiques>
+    <Configuration v-else></Configuration>
   </div>
-  <!--<div id="content" class="container" v-bind:is="readContent">
-    {{ content }}
-  </div>-->
 </template>
 
 <script>
 import Configuration from "./Configuration.vue";
+import Recherche from "./Recherche.vue";
+import Statistiques from "./Statistiques.vue";
 
 export default {
   name: "Content",
-  /*props: ['content'],
-  computed: {
-    readContent() {
-      let data = this.canvas.split('/')[2];
-      return () => import(`./components/${data}`);
-    }
-  },*/
   components: {
-    Configuration
+    Configuration,
+    Recherche,
+    Statistiques
+  },
+  methods : {
+    getContent() {
+      console.log(this.$parent);
+      return this.$parent.content;
+    }
   }
 };
 </script>
