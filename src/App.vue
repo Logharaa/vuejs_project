@@ -7,7 +7,7 @@
 
 <script>
 import Navbar from "./components/Navbar.vue";
-import Content from "./components/Content.vue"
+import Content from "./components/Content.vue";
 
 export default {
   name: "App",
@@ -24,6 +24,13 @@ export default {
 </script>
 
 <style>
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
 #app {
   font-family: sans-serif;
   -webkit-font-smoothing: antialiased;
