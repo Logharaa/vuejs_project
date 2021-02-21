@@ -1,11 +1,15 @@
 <template>
-  <h1>Recherche</h1>
+  <Table></Table>
 </template>
 
 <script>
+import Table from "./Table.vue";
 
 export default {
-  name: "Recherche"  
+  name: "Recherche",
+  components: {
+    Table
+  }
 };
 </script>
 
