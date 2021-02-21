@@ -17,7 +17,7 @@ export default {
   },
   data() {
     return {
-      content: "recherche"
+      content: "configuration"
     }
   }
 };

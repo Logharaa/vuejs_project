@@ -15,8 +15,8 @@ export default {
   methods: {
     changeContent (content) {
       this.$parent.content = content;
-      }
     }
+  }
 };
 </script>
 
@@ -31,6 +31,7 @@ a i {
 }
 
 a:hover {
+  cursor: pointer;
   color: #EC2127;
 }
 </style>

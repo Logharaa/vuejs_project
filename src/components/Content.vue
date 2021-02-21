@@ -1,8 +1,8 @@
 <template>
   <div id="content">
-    <Recherche v-if="getContent() === 'recherche'"></Recherche>
-    <Statistiques v-else-if="getContent() === 'statistiques'"></Statistiques>
-    <Configuration v-else></Configuration>
+    <Configuration v-show="getContent() === 'configuration'"></Configuration>
+    <Recherche v-show="getContent() === 'recherche'"></Recherche>
+    <Statistiques v-show="getContent() === 'statistiques'"></Statistiques>
   </div>
 </template>
 
@@ -20,7 +20,6 @@ export default {
   },
   methods : {
     getContent() {
-      console.log(this.$parent);
       return this.$parent.content;
     }
   }
