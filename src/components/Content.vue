@@ -20,7 +20,6 @@ export default {
   },
   methods : {
     getContent() {
-      console.log(this.$parent);
       return this.$parent.content;
     }
   }

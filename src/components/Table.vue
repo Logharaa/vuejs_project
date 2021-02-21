@@ -1,18 +1,19 @@
 <template>
   <div id="maRecherche">
     <h1>Recherche</h1>
-    <Element></Element>
+    <Sort v-for="item in sorts" :key="item[1]" v-bind:id="item[1]">
+    </Sort>
   </div>
 </template>
 
 <script>
-import Element from "./Element.vue";
+import Sort from "./Sort.vue";
 import { sortTable } from '../assets/data.min.js'
 
 export default {
   name: "Table",
   components: {
-    Element
+    Sort
   },
   data () {
     return {
