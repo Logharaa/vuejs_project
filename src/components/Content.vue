@@ -28,6 +28,7 @@ export default {
 
 <style scoped>
 #content {
+  flex: 1 1 auto;
   background-color: #20262c;
 }
 </style>
