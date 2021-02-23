@@ -1,6 +1,8 @@
 <template>
   <div>
     <h2>{{ getPropertyById(1) }}</h2>
+    <h3 v-on:click="showDescription()">Description</h3>
+    <p v-if="description">{{ getPropertyById(12) }}</p>
   </div>
 </template>
 
@@ -16,7 +18,8 @@ export default {
   },
   data () {
     return {
-      sort: this.getSortByName(this.id)
+      sort: this.getSortByName(this.id),
+      description: false
     }
   },
   methods : {
@@ -25,13 +28,19 @@ export default {
     },
     getPropertyById(id) {
       return this.sort[id];
+    },
+    showDescription() {
+      this.description = !this.description;
     }
   }
 };
 </script>
 
 <style scoped>
-  div {
+  h2 {
     color: green;
+  }
+  h3, p {
+    color: white;
   }
 </style>
