@@ -13,7 +13,7 @@ export default {
   name: "Select",
   props: {
     multiple: {
-      type: Boolean,
+      type: [Boolean, String],
       required: false
     },
     id: {

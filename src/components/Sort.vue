@@ -1,8 +1,16 @@
 <template>
-  <div>
-    <h2>{{ getPropertyById(1) }}</h2>
-    <h3 v-on:click="showDescription()">Description</h3>
-    <p v-if="description">{{ getPropertyById(12) }}</p>
+  <div class="card">
+    <div class="card-header text-center">{{ getPropertyById(1) }}</div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item"><b>Livre :</b> {{ getPropertyById(0) }}</li>
+      <li class="list-group-item"><b>École :</b> {{ getPropertyById(2) }}</li>
+      <li class="list-group-item"><b>Branches :</b> {{ getPropertyById(3).join(", ") || "∅" }}</li>
+      <li class="list-group-item"><b>Classes :</b> {{ getPropertyById(4).join(" / ") || "∅" }}</li>
+      <li class="list-group-item"><b>Composantes :</b> {{ getPropertyById(5).join(", ") || "∅" }}</li>
+      <li class="list-group-item description" v-on:click="showDescription()"><b>Description</b>
+        <p v-if="description">{{ getPropertyById(12) }}</p>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -37,10 +45,20 @@ export default {
 </script>
 
 <style scoped>
-  h2 {
-    color: green;
+  .card {
+    width: 28em;
+    margin: 1em;
   }
-  h3, p {
-    color: white;
+  .card-header {
+    color: green;
+    font-weight: 700;
+    font-size: 1.4em;
+  }
+  .description {
+    color: green;
+    cursor: pointer;
+  }
+  p {
+    color: #000;
   }
 </style>

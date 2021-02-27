@@ -1,10 +1,8 @@
 <template>
   <div>
-    <h1>Recherche</h1>
     <RechercheInput></RechercheInput>
     <div class="row" id="maRecherche">
-      <Sort class="col-2 sort" v-for="item in sorts" :key="item[1]" v-bind:id="item[1]">
-      </Sort>
+      <Sort v-for="item in sorts" v-bind:key="item[1]" v-bind:id="item[1]"></Sort>
     </div>
   </div>
 </template>
@@ -31,9 +29,5 @@ export default {
 <style scoped>
   h1 {
     color: white;
-  }
-  .sort {
-    border: thick ridge #32a1ce;
-    margin: 1rem;
   }
 </style>
