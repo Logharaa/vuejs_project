@@ -1,6 +1,6 @@
 <template>
   <div>
-    <RechercheInput></RechercheInput>
+    <FiltersInput></FiltersInput>
     <div class="row" id="maRecherche">
       <div v-show="sorts.length === 0" class="alert alert-danger" role="alert">Aucun sort n'a été trouvé</div>
       <Sort v-for="item in sorts" v-bind:key="item[1]" v-bind:id="item[1]"></Sort>
@@ -11,13 +11,13 @@
 <script>
 import { sortTable } from "../assets/data.min.js";
 import Sort from "./Sort.vue";
-import RechercheInput from "./RechercheInput.vue";
+import FiltersInput from "./FiltersInput.vue";
 
 export default {
   name: "Table",
   components: {
     Sort,
-    RechercheInput
+    FiltersInput
   },
   data() {
     return {
