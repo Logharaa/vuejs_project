@@ -2,7 +2,7 @@
   <div id="content">
     <Configuration v-show="getContent() === 'configuration'"></Configuration>
     <Recherche ref="recherche" v-show="getContent() === 'recherche'"></Recherche>
-    <Statistiques v-show="getContent() === 'statistiques'"></Statistiques>
+    <Statistiques ref="statistiques" v-show="getContent() === 'statistiques'"></Statistiques>
   </div>
 </template>
 

@@ -1,43 +1,25 @@
 <template>
-  <input id="rechercheInput" class="col-sm-1 form-control" type="text" placeholder="Sort" v-model="inputValue" v-on:input="onInput()"/>
+  <input id="rechercheInput" class="col-sm-1 form-control" type="text" placeholder="Sort" v-model="inputValue" v-on:input="updateSortsList()"/>
 </template>
 
 <script>
-import { sortTable } from "../assets/data.min.js";
-
 export default {
   name: "RechercheInput",
-  data () {
+  data() {
     return {
-      inputValue: "",
-      match: ""
+      inputValue: ""
     }
   },
-  methods : {
-    getSortByMatch(match) {
-      let matchedSorts = []
-      sortTable.forEach(sort => {
-        if (sort[1].includes(match)) {
-          matchedSorts.push(sort);
-        }
-      });
-      console.log(matchedSorts);
-      return matchedSorts;
-    },
-    onInput() {
+  methods: {
+    updateSortsList() {
       if (this.inputValue.length > 0) {
-        this.$parent.sorts = this.getSortByMatch(this.inputValue);
-      }
-    }
-  },
-  computed: {
-    updateSortList() {
-      if (this.inputValue.length > 0) {
-        this.$parent.sorts = "tmp";
+        this.$parent.sorts = this.$parent.sorts.filter(sort => {
+          return sort[1].toLowerCase().includes(this.inputValue.toLowerCase())
+        });
       }
     }
   }
-}
+};
 </script>
 
 <style scoped>
