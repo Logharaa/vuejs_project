@@ -62,6 +62,7 @@ export default {
         this.livresDisponibles.push(bookName); // On l'ajoute dans le tableau des livres disponibles
         localStorage.setItem("livresAjoutes", JSON.stringify(this.livresAjoutes)); // On sauvegarde le nouveau tableau des livres ajoutés dans le storage
         localStorage.setItem("livresDisponibles", JSON.stringify(this.livresDisponibles)); // On sauvegarde le nouveau tableau des livres disponibles dans le storage
+        console.log(localStorage.getItem("livresAjoutes"));
       }
     },
     getSchools() {

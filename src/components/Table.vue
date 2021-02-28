@@ -8,9 +8,9 @@
 </template>
 
 <script>
+import { sortTable } from "../assets/data.min.js";
 import Sort from "./Sort.vue";
 import RechercheInput from "./RechercheInput.vue";
-import { sortTable } from '../assets/data.min.js'
 
 export default {
   name: "Table",
@@ -18,9 +18,17 @@ export default {
     Sort,
     RechercheInput
   },
-  data () {
+  data() {
     return {
-      sorts: sortTable,
+      sorts: this.getSortArrayByConf(),
+    }
+  },
+  methods: {
+    getSortArrayByConf() {
+      let sorts = sortTable;
+      /*if (localStorage.getItem("livresAjoutes") != []) {
+      }*/
+      return sorts;
     }
   }
 };

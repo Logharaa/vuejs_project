@@ -7,8 +7,8 @@
       <li class="list-group-item"><b>Branches :</b> {{ getPropertyById(3).join(", ") || "∅" }}</li>
       <li class="list-group-item"><b>Classes :</b> {{ getPropertyById(4).join(" / ") || "∅" }}</li>
       <li class="list-group-item"><b>Composantes :</b> {{ getPropertyById(5).join(", ") || "∅" }}</li>
-      <li class="list-group-item description" v-on:click="showDescription()"><b>Description</b>
-        <p v-if="description">{{ getPropertyById(12) }}</p>
+      <li class="list-group-item description" v-on:click="showDescription()"><b>Description</b><br>
+        <span v-if="description" v-html="getPropertyById(12)"></span>
       </li>
     </ul>
   </div>
@@ -58,7 +58,7 @@ export default {
     color: green;
     cursor: pointer;
   }
-  p {
+  span {
     color: #000;
   }
 </style>

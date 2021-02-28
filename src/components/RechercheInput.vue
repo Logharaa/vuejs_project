@@ -1,15 +1,16 @@
 <template>
-  <input id="rechercheInput" type="text" v-on:input="onInput()"/>
+  <input id="rechercheInput" class="col-sm-1 form-control" type="text" placeholder="Sort" v-model="inputValue" v-on:input="onInput()"/>
 </template>
 
 <script>
-import { sortTable } from '../assets/data.min.js'
+import { sortTable } from "../assets/data.min.js";
 
 export default {
   name: "RechercheInput",
   data () {
     return {
-      match: "",
+      inputValue: "",
+      match: ""
     }
   },
   methods : {
@@ -24,9 +25,15 @@ export default {
       return matchedSorts;
     },
     onInput() {
-      let inputValue = document.getElementById("rechercheInput").value;
-      if (inputValue.length > 0) {
-        this.$parent.sorts = this.getSortByMatch(inputValue);
+      if (this.inputValue.length > 0) {
+        this.$parent.sorts = this.getSortByMatch(this.inputValue);
+      }
+    }
+  },
+  computed: {
+    updateSortList() {
+      if (this.inputValue.length > 0) {
+        this.$parent.sorts = "tmp";
       }
     }
   }
@@ -34,4 +41,7 @@ export default {
 </script>
 
 <style scoped>
+  input {
+    margin: 2em;
+  }
 </style>
