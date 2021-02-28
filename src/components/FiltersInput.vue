@@ -12,6 +12,7 @@
 </template>
 
 <script>
+
 export default {
   name: "FiltersInput",
   data() {
@@ -27,7 +28,7 @@ export default {
       if (this.sortInput.length > 0) {
         //On récupère les sorts où le nom des sorts sont filtrées
         this.$parent.sortsAfterFiltering = this.$parent.sorts.filter(sort => {
-        return sort[1].toLowerCase().includes(this.sortInput.toLowerCase())
+        return sort[1].toLowerCase().includes(this.sortInput.toLowerCase());
         });
       }
       else if (this.livreInput.length == 0 && this.classeInput.length == 0) {
@@ -39,7 +40,7 @@ export default {
       if (this.livreInput.length > 0) {
         //On récupère les sorts où le nom des livres sont filtrées
         this.$parent.sortsAfterFiltering = this.$parent.sorts.filter(sort => {
-          return sort[0].toLowerCase().includes(this.livreInput.toLowerCase())
+          return sort[0].toLowerCase().includes(this.livreInput.toLowerCase());
         });
       }
       else if (this.sortInput.length == 0 && this.classeInput.length == 0) {
