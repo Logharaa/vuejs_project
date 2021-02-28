@@ -29,7 +29,7 @@ export default {
     getSortsByConf() {
       let sorts = [];
       
-      // Livres ajoutés
+      // Filtrage des sorts ayant un nom donné
       let booksName = JSON.parse(localStorage.getItem("livresAjoutes"));
 
       if (booksName && booksName.length > 0) {
@@ -38,10 +38,10 @@ export default {
         });
       }
 
-      // École
+      // Filtrage des sorts appartenant à une école donnée
       sorts = sorts.filter(sort => sort[2] === JSON.parse(localStorage.getItem("ecoles"))[0]);
       
-      // Niveau min
+      // Filtrage de tous les sorts ayant un niveau supérieur au niveau minimum
       if (localStorage.getItem("niveauMin")) {
         sorts = sorts.filter(sort => {
           let sortLevels = [];
@@ -51,7 +51,7 @@ export default {
         });
       }
 
-      // Niveau max
+      // Filtrage de tous les sorts ayant un niveau inférieur au niveau maximum
       if (localStorage.getItem("niveauMax")) {
         sorts = sorts.filter(sort => {
           let sortLevels = [];

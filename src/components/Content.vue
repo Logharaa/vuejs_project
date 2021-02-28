@@ -19,6 +19,7 @@ export default {
     Statistiques
   },
   methods : {
+    //Récupération du contenu de la page
     getContent() {
       return this.$parent.content;
     }

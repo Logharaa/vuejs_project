@@ -31,6 +31,7 @@ export default {
     }
   },
   methods: {
+    // Méthode qui va appeler la méthode du composant parent dont le nom est passé en props lorsque l'input HTML est édité
     onInput() {
       if (this.onInputMethod) {
         this.$parent[this.onInputMethod](document.getElementById(this.id).value);

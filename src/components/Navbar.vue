@@ -18,6 +18,7 @@ export default {
   methods: {
     changeContent (content) {
       this.$parent.content = content;
+      //Mise à jour du tableau des sorts dans les composants souhaités
       if (content === "recherche" || content === "statistiques") {
         this.$parent.$refs.content.$refs.recherche.$refs.table.getSortsByConf();
         this.$parent.$refs.content.$refs.statistiques.getSearchedSorts();
