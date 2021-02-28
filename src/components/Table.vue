@@ -3,7 +3,7 @@
     <FiltersInput></FiltersInput>
     <div class="row" id="maRecherche">
       <div v-show="sorts.length === 0" class="alert alert-danger" role="alert">Aucun sort n'a été trouvé</div>
-      <Sort v-for="item in sorts" v-bind:key="item[1]" v-bind:id="item[1]"></Sort>
+      <Sort v-for="item in sortsAfterFiltering" v-bind:key="item[1]" v-bind:id="item[1]"></Sort>
     </div>
   </div>
 </template>
@@ -21,7 +21,8 @@ export default {
   },
   data() {
     return {
-      sorts: []
+      sorts: [],
+      sortsAfterFiltering: []
     }
   },
   methods: {
@@ -60,6 +61,7 @@ export default {
         });
       }
 
+      this.sortsAfterFiltering = sorts;
       this.sorts = sorts;
     }
   }

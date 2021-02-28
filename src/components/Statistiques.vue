@@ -1,6 +1,5 @@
 <template>
-  <table class="table table-striped table-light text-center mx-auto">
-    <thead><tr>
+  <table class="table table-striped table-light text-center mx-auto"><thead><tr>
         <th>Nombre de sorts</th>
         <th>Nombre de branches</th>
         <th>Niveau minimum</th>
