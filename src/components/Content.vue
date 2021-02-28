@@ -1,7 +1,7 @@
 <template>
   <div id="content">
     <Configuration v-show="getContent() === 'configuration'"></Configuration>
-    <Recherche v-show="getContent() === 'recherche'"></Recherche>
+    <Recherche ref="recherche" v-show="getContent() === 'recherche'"></Recherche>
     <Statistiques v-show="getContent() === 'statistiques'"></Statistiques>
   </div>
 </template>

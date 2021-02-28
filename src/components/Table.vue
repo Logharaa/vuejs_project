@@ -20,15 +20,53 @@ export default {
   },
   data() {
     return {
-      sorts: this.getSortArrayByConf(),
+      sorts: [],
     }
   },
   methods: {
     getSortArrayByConf() {
-      let sorts = sortTable;
-      /*if (localStorage.getItem("livresAjoutes") != []) {
-      }*/
-      return sorts;
+      let sorts = [];
+      let booksName = JSON.parse(localStorage.getItem("livresAjoutes"));
+      //Livres
+      if (booksName.length > 0) {
+        booksName.forEach(book => {
+          sorts = sorts.concat(sortTable.filter( sort => sort[0] === book ));
+        });
+      }
+      //École
+      sorts = sorts.filter(sort => sort[2] === JSON.parse(localStorage.getItem("ecoles"))[0]);
+      
+      //Niveau Min
+      if (localStorage.getItem("niveauMin")) {
+        let niveauMin = 9;
+        sorts.forEach(sort => {
+          let classes = sort[4];
+          classes.forEach(classe => {
+            let niveau = classe[1];
+            if (niveau < niveauMin) niveauMin = niveau;
+          });
+        });
+          sorts = sorts.filter(sort => niveauMin >= localStorage.getItem("niveauMin"));
+      }
+      console.log(sorts);
+
+      //Niveau Max
+      if (localStorage.getItem("niveauMax")) {
+        let niveauMax = 0;
+        sorts.forEach(sort => {
+          let classes = sort[4];
+          classes.forEach(classe => {
+            let niveau = classe[1];
+            if (niveau > niveauMax) niveauMax = niveau;
+          });
+        });
+          console.log("localStorage : " + localStorage.getItem("niveauMax") + " | niveauMax : " + niveauMax);
+          sorts = sorts.filter(sort => niveauMax <= localStorage.getItem("niveauMax"));
+      }
+
+      console.log(sorts);
+
+      this.sorts = sorts;
     }
   }
 };

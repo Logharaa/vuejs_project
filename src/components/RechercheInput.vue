@@ -17,7 +17,7 @@ export default {
     getSortByMatch(match) {
       let matchedSorts = []
       sortTable.forEach(sort => {
-        if (sort[0].includes(match)) {
+        if (sort[1].includes(match)) {
           matchedSorts.push(sort);
         }
       });
