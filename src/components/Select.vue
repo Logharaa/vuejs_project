@@ -42,11 +42,13 @@ export default {
     },
   },
   methods: {
+    // Appel de la méthode du composant parent dont le nom est passé en props lorsque la valeur du select HTML est modifiée
     onChange() {
       if (this.onChangeMethod) {
         this.$parent[this.onChangeMethod](document.getElementById(this.id).value);
       }
     },
+    // Appel de la méthode du composant parent dont le nom est passé en props lorsque l'on clique sur le bouton HTML
     onClick() {
       if (this.onClickMethod) {
         this.$parent[this.onClickMethod](document.getElementById(this.id).value);

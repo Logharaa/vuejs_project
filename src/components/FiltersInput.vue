@@ -26,7 +26,7 @@ export default {
     //Méthode appelée lors du changement d'état de l'input HTML où est saisi la recherche du nom d'un sort
     updateSortsListSortName() {
       if (this.sortInput.length > 0) {
-        //On récupère les sorts où le nom des sorts sont filtrées
+        // On récupère les sorts dont les noms contiennent l'input
         this.$parent.sortsAfterFiltering = this.$parent.sorts.filter(sort => {
         return sort[1].toLowerCase().includes(this.sortInput.toLowerCase());
         });
@@ -38,7 +38,7 @@ export default {
     //Méthode appelée lors du changement d'état de l'input HTML où est saisi la recherche du nom d'un livre
     updateSortsListBookName() {
       if (this.livreInput.length > 0) {
-        //On récupère les sorts où le nom des livres sont filtrées
+        // On récupère les sorts dont le nom des livres contiennent l'input
         this.$parent.sortsAfterFiltering = this.$parent.sorts.filter(sort => {
           return sort[0].toLowerCase().includes(this.livreInput.toLowerCase());
         });
@@ -50,7 +50,7 @@ export default {
     //Méthode appelée lors du changement d'état de l'input HTML où est saisi la recherche du nom d'une classe
     updateSortsListClasseName() {
       if (this.classeInput.length > 0) {
-        //On récupère les sorts où les classes sont filtrées
+        // On récupère les sorts dont le nom des classes contiennent l'input
         this.$parent.sortsAfterFiltering = this.$parent.sorts.filter(sort => {
           let match = false;
           sort[4].forEach(classe => {

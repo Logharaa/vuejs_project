@@ -31,15 +31,15 @@ export default {
     }
   },
   methods : {
-    //Récupération du sort par son identifiant
+    // Récupération du sort par son identifiant
     getSortByName(id) {
       return this.$parent.sorts.filter(sort => sort[1] === id)[0];
     },
-    //Récupération d'une propriété d'un sort
+    // Récupération d'une propriété d'un sort
     getPropertyById(id) {
       return this.sort[id];
     },
-    //Autorisation de l'affichage de la description
+    // Autorisation de l'affichage de la description
     showDescription() {
       this.description = !this.description;
     }

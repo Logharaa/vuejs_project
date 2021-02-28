@@ -25,14 +25,17 @@ export default {
     }
   },
   methods: {
+    // Récupération du tableau de sorts contenu dans le composant Table
     getSearchedSorts() {
       this.sorts = this.$parent.$refs.recherche.$refs.table.sorts;
     }
   },
   computed: {
+    // Comptage du nombre de sorts
     numberOfSorts() {
       return this.sorts.length;
     },
+    // Comptage du nombre de branches différentes
     numberOfBranches() {
       let allBranches = [];
 
@@ -45,6 +48,7 @@ export default {
 
       return allBranches.length;
     },
+    // Récupération du niveau minimum parmi les différents sorts du tableau
     minimumLevel() {
       let minimumLevel = 9;
       
@@ -57,6 +61,7 @@ export default {
 
       return minimumLevel;
     },
+    // Récupération du niveau maximum parmi les différents sorts du tableau
     maximumLevel() {
       let maximumLevel = 0;
       
@@ -69,6 +74,7 @@ export default {
 
       return maximumLevel;
     },
+    // Comptage du nombre de composantes différentes
     numberOfComposantes() {
       let allComposantes = [];
 
